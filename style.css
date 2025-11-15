@@ -1,0 +1,9 @@
+/* general styling */
+body, .lightMode {
+  background-color: white;
+  color: black;
+}
+body, .darkMode {
+  background-color: black;
+  color: white;
+}
