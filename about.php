@@ -12,12 +12,12 @@ include 'connect.php';
     <title>Document</title>
 </head>
 <body class="lightMode">
-    <div class="site-cover site-cover-sm same-height overlay single-page py-5" style="background-image: url('./devimg/20250614_224400.jpg');">
+    <div class="site-cover site-cover-sm same-height overlay single-page py-5" style="background-image: url('./devimg/20250510_201419.jpg'); background-size: cover; background-position: top;">
 		<div class="container">
 			<div class="row same-height justify-content-center">
 				<div class="col-md-6">
 					<div class="post-entry text-center">
-						<h1 class="text-primary mb-4">About Us</h1>
+						<h1 class="text-light fw-bold mb-4">About Us</h1>
 					</div>
 				</div>
 			</div>
@@ -92,35 +92,19 @@ include 'connect.php';
 
 			<div class="row">
 				<div class="col-lg-4 mb-4 text-center">
-					<img src="images/person_1.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
-					<h5 class="text-black">James Griffin</h5>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+					<img src="./devimg/20250326_125717.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+					<h5 class="text-black">Peter Griffin</h5>
+					<p>Fat bastard. </p>
 				</div>
 				<div class="col-lg-4 mb-4 text-center">
-					<img src="images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
-					<h5 class="text-black">Claire Smith</h5>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+					<img src="./devimg/20240918_182252.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+					<h5 class="text-black">El Bitcho</h5>
+					<p>Aura merchant. </p>
 				</div>
 				<div class="col-lg-4 mb-4 text-center">
-					<img src="images/person_3.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
-					<h5 class="text-black">Jessica Wilson</h5>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-				</div>
-
-				<div class="col-lg-4 mb-4 text-center">
-					<img src="images/person_4.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
-					<h5 class="text-black">William Anderson</h5>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-				</div>
-				<div class="col-lg-4 mb-4 text-center">
-					<img src="images/person_5.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
-					<h5 class="text-black">Julie Harvey</h5>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-				</div>
-				<div class="col-lg-4 mb-4 text-center">
-					<img src="images/person_2.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
-					<h5 class="text-black">Shana Clarkson</h5>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
+					<img src="./devimg/20240917_205656.jpg" alt="Image" class="img-fluid w-50 rounded-circle mb-3">
+					<h5 class="text-black">MO17</h5>
+					<p>Non-chalant final boss. </p>
 				</div>
 			</div>
 
@@ -180,7 +164,7 @@ include 'connect.php';
 		<footer class="footer bg-dark text-white py-5">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4">
+				<div class="col-lg-6">
 					<div class="widget">
 						<h3 class="mb-4">About</h3>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
@@ -195,7 +179,7 @@ include 'connect.php';
 						</ul>
 					</div> <!-- /.widget -->
 				</div> <!-- /.col-lg-4 -->
-				<div class="col-lg-4 ps-lg-5">
+				<div class="col-lg-6 ps-lg-5">
 					<div class="widget">
 						<h3 class="mb-4">Company</h3>
 						<ul class="list-unstyled float-start links">
@@ -214,50 +198,6 @@ include 'connect.php';
 							<li><a href="#">FAQ</a></li>
 							<li><a href="#">Creative</a></li>
 						</ul>
-					</div> <!-- /.widget -->
-				</div> <!-- /.col-lg-4 -->
-				<div class="col-lg-4">
-					<div class="widget">
-						<h3 class="mb-4">Recent Post Entry</h3>
-						<div class="post-entry-footer">
-							<ul>
-								<li>
-									<a href="">
-										<img src="images/img_1_sq.jpg" alt="Image placeholder" class="me-4 rounded">
-										<div class="text">
-											<h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-											<div class="post-meta">
-												<span class="mr-2">March 15, 2018 </span>
-											</div>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<img src="images/img_2_sq.jpg" alt="Image placeholder" class="me-4 rounded">
-										<div class="text">
-											<h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-											<div class="post-meta">
-												<span class="mr-2">March 15, 2018 </span>
-											</div>
-										</div>
-									</a>
-								</li>
-								<li>
-									<a href="">
-										<img src="images/img_3_sq.jpg" alt="Image placeholder" class="me-4 rounded">
-										<div class="text">
-											<h4>There’s a Cool New Way for Men to Wear Socks and Sandals</h4>
-											<div class="post-meta">
-												<span class="mr-2">March 15, 2018 </span>
-											</div>
-										</div>
-									</a>
-								</li>
-							</ul>
-						</div>
-
-
 					</div> <!-- /.widget -->
 				</div> <!-- /.col-lg-4 -->
 			</div> <!-- /.row -->

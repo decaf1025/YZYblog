@@ -94,7 +94,7 @@ $comment_count = mysqli_fetch_assoc($count_result)['total'];
             <div class="row my-4">
               <div class="col-md-12 text-center mb-4">
                 <?php if (!empty($post['image'])): ?>
-                  <img src="uploads/<?= htmlspecialchars($post['image']) ?>" class="img-fluid rounded-start" alt="Post image">
+                  <img src="uploads/<?= htmlspecialchars($post['image']) ?>" class="img-fluid w-100 rounded" alt="Post image">
                 <?php endif; ?>
               </div>
             </div>
@@ -115,7 +115,7 @@ $comment_count = mysqli_fetch_assoc($count_result)['total'];
             <?php endif; ?>
           </div>
          
-          <div class="pt-5 comment-wrap">
+          <div class="comment-wrap shadow-sm rounded p-3 my-3">
             <?php if (mysqli_num_rows($comments_result) == 0): ?>
               <p>No comments on this post yet!</p>
             <?php else: ?>
@@ -133,138 +133,16 @@ $comment_count = mysqli_fetch_assoc($count_result)['total'];
                     <div class="comment-body">
                       <h3><?= htmlspecialchars($c['username'])?></h3>
                       <div class="meta"><?= htmlspecialchars($c['created_at'])?></div>
-                      <p><?= htmlspecialchars($c['comment'])?></p>
-                      <p><a href="add_comment.php" class="btn btn-outline-primary">Reply</a></p>
-                      <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $c['user_id']): ?>
-                          <form method="POST" action="delete_comment.php" onsubmit="return confirm('Delete this comment?');">
-                              <input type="hidden" name="comment_id" value="<?= $c['id'] ?>">
-                              <input type="hidden" name="post_id" value="<?= $current_post_id ?>">
-                              <button class="btn btn-sm btn-danger">Delete</button>
-                          </form>
-                      <?php endif; ?>
-                    </div>
-                  </li>
-
-                  <li class="comment">
-                    <div class="vcard">
-                      <?php if (!empty($c['profile_pic'])): ?>
-                        <img src="pfp/<?= htmlspecialchars($c['profile_pic']) ?>" class="rounded-circle" width="50" height="50" alt="profile">
-                      <?php else: ?>
-                        <i class="bi bi-person-circle" style="font-size: 1rem;" alt="profile"></i>
-                      <?php endif; ?>
-                    </div>
-                    <div class="comment-body">
-                      <h3><?= htmlspecialchars($c['username'])?></h3>
-                      <div class="meta"><?= htmlspecialchars($c['created_at'])?></div>
-                      <p><?= htmlspecialchars($c['comment'])?></p>
-                      <p><a href="add_comment.php" class="btn btn-outline-primary">Reply</a></p>
-                      <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $c['user_id']): ?>
-                          <form method="POST" action="delete_comment.php" onsubmit="return confirm('Delete this comment?');">
-                              <input type="hidden" name="comment_id" value="<?= $c['id'] ?>">
-                              <input type="hidden" name="post_id" value="<?= $current_post_id ?>">
-                              <button class="btn btn-sm btn-danger">Delete</button>
-                          </form>
-                      <?php endif; ?>
-                    </div>
-
-                    <ul class="children">
-                      <li class="comment">
-                        <div class="vcard">
-                          <?php if (!empty($c['profile_pic'])): ?>
-                            <img src="pfp/<?= htmlspecialchars($c['profile_pic']) ?>" class="rounded-circle" width="50" height="50" alt="profile">
-                          <?php else: ?>
-                            <i class="bi bi-person-circle" style="font-size: 1rem;" alt="profile"></i>
-                          <?php endif; ?>
-                        </div>
-                        <div class="comment-body">
-                          <h3><?= htmlspecialchars($c['username'])?></h3>
-                          <div class="meta"><?= htmlspecialchars($c['created_at'])?></div>
-                          <p><?= htmlspecialchars($c['comment'])?></p>
-                          <p><a href="add_comment.php" class="btn btn-outline-primary">Reply</a></p>
-                          <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $c['user_id']): ?>
+                      <p><?= nl2br(htmlspecialchars($c['comment']))?></p>
+                      <div class="d-flex justify-content-end gap-2 me-auto mt-2">
+                        <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $c['user_id']): ?>
                             <form method="POST" action="delete_comment.php" onsubmit="return confirm('Delete this comment?');">
                                 <input type="hidden" name="comment_id" value="<?= $c['id'] ?>">
                                 <input type="hidden" name="post_id" value="<?= $current_post_id ?>">
-                                <button class="btn btn-sm btn-danger">Delete</button>
+                                <button class="btn btn-sm btn-outline-danger">Delete</button>
                             </form>
-                          <?php endif; ?>
-                        </div>
-
-
-                        <ul class="children">
-                          <li class="comment">
-                            <div class="vcard">
-                              <?php if (!empty($c['profile_pic'])): ?>
-                                <img src="pfp/<?= htmlspecialchars($c['profile_pic']) ?>" class="rounded-circle" width="50" height="50" alt="profile">
-                              <?php else: ?>
-                                <i class="bi bi-person-circle" style="font-size: 1rem;" alt="profile"></i>
-                              <?php endif; ?>
-                            </div>
-                            <div class="comment-body">
-                              <h3><?= htmlspecialchars($c['username'])?></h3>
-                              <div class="meta"><?= htmlspecialchars($c['created_at'])?></div>
-                              <p><?= htmlspecialchars($c['comment'])?></p>
-                              <p><a href="add_comment.php" class="btn btn-outline-primary">Reply</a></p>
-                              <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $c['user_id']): ?>
-                                <form method="POST" action="delete_comment.php" onsubmit="return confirm('Delete this comment?');">
-                                    <input type="hidden" name="comment_id" value="<?= $c['id'] ?>">
-                                    <input type="hidden" name="post_id" value="<?= $current_post_id ?>">
-                                    <button class="btn btn-sm btn-danger">Delete</button>
-                                </form>
-                              <?php endif; ?>
-                            </div>
-
-                            <ul class="children">
-                              <li class="comment">
-                                <div class="vcard">
-                                  <?php if (!empty($c['profile_pic'])): ?>
-                                    <img src="pfp/<?= htmlspecialchars($c['profile_pic']) ?>" class="rounded-circle" width="50" height="50" alt="profile">
-                                  <?php else: ?>
-                                    <i class="bi bi-person-circle" style="font-size: 1rem;" alt="profile"></i>
-                                  <?php endif; ?>
-                                </div>
-                                <div class="comment-body">
-                                  <h3><?= htmlspecialchars($c['username'])?></h3>
-                                  <div class="meta"><?= htmlspecialchars($c['created_at'])?></div>
-                                  <p><?= htmlspecialchars($c['comment'])?></p>
-                                  <p><a href="add_comment.php" class="btn btn-outline-primary">Reply</a></p>
-                                  <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $c['user_id']): ?>
-                                      <form method="POST" action="delete_comment.php" onsubmit="return confirm('Delete this comment?');">
-                                          <input type="hidden" name="comment_id" value="<?= $c['id'] ?>">
-                                          <input type="hidden" name="post_id" value="<?= $current_post_id ?>">
-                                          <button class="btn btn-sm btn-danger">Delete</button>
-                                      </form>
-                                  <?php endif; ?>
-                                </div>
-                              </li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </li>
-                    </ul>
-                  </li>
-
-                  <li class="comment">
-                    <div class="vcard">
-                      <?php if (!empty($c['profile_pic'])): ?>
-                        <img src="pfp/<?= htmlspecialchars($c['profile_pic']) ?>" class="rounded-circle" width="50" height="50" alt="profile">
-                      <?php else: ?>
-                        <i class="bi bi-person-circle" style="font-size: 1rem;" alt="profile"></i>
-                      <?php endif; ?>
-                    </div>
-                    <div class="comment-body">
-                      <h3><?= htmlspecialchars($c['username'])?></h3>
-                      <div class="meta"><?= htmlspecialchars($c['created_at'])?></div>
-                      <p><?= htmlspecialchars($c['comment'])?></p>
-                      <p><a href="add_comment.php" class="btn btn-outline-primary">Reply</a></p>
-                      <?php if (isset($_SESSION['user_id']) && $_SESSION['user_id'] == $c['user_id']): ?>
-                          <form method="POST" action="delete_comment.php" onsubmit="return confirm('Delete this comment?');">
-                              <input type="hidden" name="comment_id" value="<?= $c['id'] ?>">
-                              <input type="hidden" name="post_id" value="<?= $current_post_id ?>">
-                              <button class="btn btn-sm btn-danger">Delete</button>
-                          </form>
-                      <?php endif; ?>
-                    </div>
+                        <?php endif; ?>
+                      </div>
                   </li>
                 </ul>
             <?php endwhile; ?>
@@ -276,12 +154,11 @@ $comment_count = mysqli_fetch_assoc($count_result)['total'];
 
               <?php if (isset($_SESSION['user_id'])): ?>
               <form action="add_comment.php" method="POST" class="p-5 bg-light">
-                <div class="form-group">
-                  <input type="hidden" name="post_id" value="<?= $current_post_id ?>">
-                  <textarea name="comment" id="message" cols="15" rows="5" class="form-control" placeholder="Write a comment..." required></textarea>
-                </div>
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary mt-2">Post Comment</button>
+                <input type="hidden" name="post_id" value="<?= $current_post_id ?>">
+                <input type="hidden" name="parent_id" value="">
+                <div class="input-group">
+                  <input type="text" name="comment" class="form-control" placeholder="Write a comment..." required>
+                  <button type="submit" name="submit_comment" class="btn btn-outline-primary ms-2">Post Comment</button>
                 </div>
               </form>
               <?php else: ?>
@@ -314,7 +191,7 @@ $comment_count = mysqli_fetch_assoc($count_result)['total'];
             </div>
           </div>
           <!-- END sidebar-box -->  
-          <div class="sidebar-box">
+          <div class="sidebar-box mb-5">
             <h3 class="heading">All Posts</h3>
             <div class="post-entry-sidebar">
               <?php if ($all_posts && mysqli_num_rows($all_posts) > 0): ?>
@@ -407,7 +284,7 @@ $comment_count = mysqli_fetch_assoc($count_result)['total'];
       </div>
     </div>
 
-  <footer id="footer" class="footer bg-dark text-center text-white fixed-bottom py-2">
+  <footer id="footer" class="footer bg-dark text-center text-white fixed-bottom py-1">
     <p>© Copyright <strong class="text-primary px-1">YZYblog.</strong> All Rights Reserved.</p>
   </footer>
 </body>

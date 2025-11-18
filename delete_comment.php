@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     mysqli_stmt_execute($stmt);
 
     // Go back to the blog post
-    header("Location: each_blog.php?id=<?= $id ?>" . $post_id);
+    header("Location: each_blog.php?id=" . $post_id);
     exit;
 }
 ?>
